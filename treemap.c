@@ -11,9 +11,8 @@ struct TreeNode {
   TreeNode *right;
   TreeNode *parent;
 };
--
 
-    struct TreeMap {
+struct TreeMap {
   TreeNode *root;
   TreeNode *current;
   int (*lower_than)(void *key1, void *key2);
