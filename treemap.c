@@ -156,5 +156,7 @@ Pair *nextTreeMap(TreeMap *tree) {
     nodito = p;
   }
   tree->current = nodito;
+  if (nodito == NULL)
+    return NULL;
   return nodito->pair;
 }
