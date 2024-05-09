@@ -118,6 +118,21 @@ Pair *searchTreeMap(TreeMap *tree, void *key) {
 
 Pair *upperBound(TreeMap *tree, void *key) { return NULL; }
 
-Pair *firstTreeMap(TreeMap *tree) { return NULL; }
+Pair *firstTreeMap(TreeMap *tree) {
+  /*Implemente las funciones para recorrer la estructura: Pair*
+   * firstTreeMap(TreeMap* tree) retorna el primer Pair del mapa (el menor).
+   * Pair* nextTreeMap(TreeMap* tree) retornar el siguiente Pair del mapa a
+   * partir del puntero TreeNode* current. Recuerde actualizar este puntero.*/
+  if (tree == NULL)
+    return NULL;
+  if (tree->root == NULL)
+    return NULL;
+  TreeNode *nodito = tree->root;
+  while (nodito->left != NULL) {
+    nodito = nodito->left;
+  }
+  tree->current = nodito;
+  return nodito->pair;
+}
 
 Pair *nextTreeMap(TreeMap *tree) { return NULL; }
