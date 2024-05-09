@@ -135,4 +135,26 @@ Pair *firstTreeMap(TreeMap *tree) {
   return nodito->pair;
 }
 
-Pair *nextTreeMap(TreeMap *tree) { return NULL; }
+Pair *nextTreeMap(TreeMap *tree) {
+  if (tree == NULL)
+    return NULL;
+  if (tree->root == NULL)
+    return NULL;
+
+  TreeNode *nodito = tree->current;
+  if (nodito->right != NULL) {
+    nodito = nodito->right;
+    while (nodito->left != NULL) {
+      nodito = nodito->left;
+    }
+  } else {
+    TreeNode *p = nodito->parent;
+    while (p != NULL && nodito == p->right) {
+      nodito = p;
+      p = p->parent;
+    }
+    nodito = p;
+  }
+  tree->current = nodito;
+  return nodito->pair;
+}
