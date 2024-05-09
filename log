@@ -7,3 +7,237 @@ Thu 09 May 2024 08:02:02 PM UTC:
  1 file changed, 41 insertions(+), 33 deletions(-)
  tests:  0|0
 107585c
+Thu 09 May 2024 08:03:08 PM UTC: 
+ treemap.c | 1 +
+ 1 file changed, 1 insertion(+)
+In file included from test.c:4:
+treemap.c:14:1: error: expected identifier or ‘(’ before ‘-’ token
+   14 | -
+      | ^
+treemap.c: In function ‘is_equal’:
+treemap.c:23:11: error: invalid use of incomplete typedef ‘TreeMap’
+   23 |   if (tree->lower_than(key1, key2) == 0 && tree->lower_than(key2, key1) == 0)
+      |           ^~
+treemap.c:23:48: error: invalid use of incomplete typedef ‘TreeMap’
+   23 |   if (tree->lower_than(key1, key2) == 0 && tree->lower_than(key2, key1) == 0)
+      |                                                ^~
+treemap.c: In function ‘insertTreeMap’:
+treemap.c:54:11: error: invalid use of incomplete typedef ‘TreeMap’
+   54 |   if (tree->root == NULL) {
+      |           ^~
+treemap.c:55:9: error: invalid use of incomplete typedef ‘TreeMap’
+   55 |     tree->root = newNode;
+      |         ^~
+treemap.c:56:9: error: invalid use of incomplete typedef ‘TreeMap’
+   56 |     tree->current = newNode;
+      |         ^~
+treemap.c:59:27: error: invalid use of incomplete typedef ‘TreeMap’
+   59 |   TreeNode *current = tree->root;
+      |                           ^~
+treemap.c:72:7: error: invalid use of incomplete typedef ‘TreeMap’
+   72 |   tree->current = newNode;
+      |       ^~
+treemap.c: In function ‘eraseTreeMap’:
+treemap.c:80:27: error: invalid use of incomplete typedef ‘TreeMap’
+   80 |   if (tree == NULL || tree->root == NULL)
+      |                           ^~
+treemap.c:85:24: error: invalid use of incomplete typedef ‘TreeMap’
+   85 |   TreeNode *node = tree->current;
+      |                        ^~
+test.c: In function ‘initializeTree’:
+test.c:60:44: error: invalid application of ‘sizeof’ to incomplete type ‘TreeMap’
+   60 |     TreeMap* tree=(TreeMap *)malloc(sizeof(TreeMap));
+      |                                            ^~~~~~~
+test.c:61:9: error: invalid use of incomplete typedef ‘TreeMap’
+   61 |     tree->lower_than = lower_than_int;
+      |         ^~
+test.c:63:9: error: invalid use of incomplete typedef ‘TreeMap’
+   63 |     tree->root=createTreeNode(&p->id, p);
+      |         ^~
+test.c:65:9: error: invalid use of incomplete typedef ‘TreeMap’
+   65 |     tree->root->right=createTreeNode(&p->id, p);
+      |         ^~
+test.c:66:9: error: invalid use of incomplete typedef ‘TreeMap’
+   66 |     tree->root->right->parent=tree->root;
+      |         ^~
+test.c:66:35: error: invalid use of incomplete typedef ‘TreeMap’
+   66 |     tree->root->right->parent=tree->root;
+      |                                   ^~
+test.c:68:9: error: invalid use of incomplete typedef ‘TreeMap’
+   68 |     tree->root->right->left=createTreeNode(&p->id, p);
+      |         ^~
+test.c:69:9: error: invalid use of incomplete typedef ‘TreeMap’
+   69 |     tree->root->right->left->parent=tree->root->right;
+      |         ^~
+test.c:69:41: error: invalid use of incomplete typedef ‘TreeMap’
+   69 |     tree->root->right->left->parent=tree->root->right;
+      |                                         ^~
+test.c:71:9: error: invalid use of incomplete typedef ‘TreeMap’
+   71 |     tree->root->left=createTreeNode(&p->id, p);
+      |         ^~
+test.c:72:9: error: invalid use of incomplete typedef ‘TreeMap’
+   72 |     tree->root->left->parent=tree->root;
+      |         ^~
+test.c:72:34: error: invalid use of incomplete typedef ‘TreeMap’
+   72 |     tree->root->left->parent=tree->root;
+      |                                  ^~
+test.c: In function ‘create_test1’:
+test.c:85:9: error: invalid use of incomplete typedef ‘TreeMap’
+   85 |     if(t->root!=NULL){
+      |         ^~
+test.c:93:9: error: invalid use of incomplete typedef ‘TreeMap’
+   93 |     if(t->lower_than != lower_than_int || t->lower_than(&i,&j) !=1 ) {
+      |         ^~
+test.c:93:44: error: invalid use of incomplete typedef ‘TreeMap’
+   93 |     if(t->lower_than != lower_than_int || t->lower_than(&i,&j) !=1 ) {
+      |                                            ^~
+test.c: In function ‘search_test1’:
+test.c:112:12: error: invalid use of incomplete typedef ‘TreeMap’
+  112 |     if(tree->current != tree->root){
+      |            ^~
+test.c:112:29: error: invalid use of incomplete typedef ‘TreeMap’
+  112 |     if(tree->current != tree->root){
+      |                             ^~
+test.c: In function ‘search_test2’:
+test.c:131:12: error: invalid use of incomplete typedef ‘TreeMap’
+  131 |     if(tree->current != tree->root->right){
+      |            ^~
+test.c:131:29: error: invalid use of incomplete typedef ‘TreeMap’
+  131 |     if(tree->current != tree->root->right){
+      |                             ^~
+test.c: In function ‘search_test3’:
+test.c:151:12: error: invalid use of incomplete typedef ‘TreeMap’
+  151 |     if(tree->current != tree->root->right->left){
+      |            ^~
+test.c:151:29: error: invalid use of incomplete typedef ‘TreeMap’
+  151 |     if(tree->current != tree->root->right->left){
+      |                             ^~
+test.c: In function ‘insert_test1’:
+test.c:177:12: error: invalid use of incomplete typedef ‘TreeMap’
+  177 |     if(tree->root->left->left != NULL ||
+      |            ^~
+test.c:178:16: error: invalid use of incomplete typedef ‘TreeMap’
+  178 |            tree->root->left->right != NULL){
+      |                ^~
+test.c: In function ‘insert_test2’:
+test.c:195:12: error: invalid use of incomplete typedef ‘TreeMap’
+  195 |     if(tree->root->left->left == NULL ||
+      |            ^~
+test.c:196:16: error: invalid use of incomplete typedef ‘TreeMap’
+  196 |            tree->root->left->left->pair->value!=p) {
+      |                ^~
+test.c:202:12: error: invalid use of incomplete typedef ‘TreeMap’
+  202 |     if(tree->root->left->left != NULL &&
+      |            ^~
+test.c:203:23: error: invalid use of incomplete typedef ‘TreeMap’
+  203 |             (int*)tree->root->left->left->pair->key!=&p->id) {
+      |                       ^~
+test.c:208:12: error: invalid use of incomplete typedef ‘TreeMap’
+  208 |     if(tree->root->left->left->parent !=
+      |            ^~
+test.c:209:17: error: invalid use of incomplete typedef ‘TreeMap’
+  209 |             tree->root->left){
+      |                 ^~
+test.c:214:12: error: invalid use of incomplete typedef ‘TreeMap’
+  214 |     if(tree->current != tree->root->left->left){
+      |            ^~
+test.c:214:29: error: invalid use of incomplete typedef ‘TreeMap’
+  214 |     if(tree->current != tree->root->left->left){
+      |                             ^~
+test.c: In function ‘minimum_test’:
+test.c:225:31: error: invalid use of incomplete typedef ‘TreeMap’
+  225 |     TreeNode* n = minimum(tree->root);
+      |                               ^~
+test.c:239:21: error: invalid use of incomplete typedef ‘TreeMap’
+  239 |     n = minimum(tree->root->left);
+      |                     ^~
+test.c:247:9: error: invalid use of incomplete typedef ‘TreeMap’
+  247 |     tree->root->left->left=createTreeNode(&p->id, p);
+      |         ^~
+test.c:248:9: error: invalid use of incomplete typedef ‘TreeMap’
+  248 |     tree->root->left->left->parent=tree->root->left;
+      |         ^~
+test.c:248:40: error: invalid use of incomplete typedef ‘TreeMap’
+  248 |     tree->root->left->left->parent=tree->root->left;
+      |                                        ^~
+test.c:250:21: error: invalid use of incomplete typedef ‘TreeMap’
+  250 |     n = minimum(tree->root);
+      |                     ^~
+test.c: In function ‘erase_test1’:
+test.c:268:12: error: invalid use of incomplete typedef ‘TreeMap’
+  268 |     if(tree->root->left != NULL) {
+      |            ^~
+test.c: In function ‘erase_test2’:
+test.c:283:23: error: invalid use of incomplete typedef ‘TreeMap’
+  283 |     if( * ((int*) tree->root->right->pair->key) != 6980) {
+      |                       ^~
+test.c:289:14: error: invalid use of incomplete typedef ‘TreeMap’
+  289 |     if(  tree->root->right->parent != tree->root){
+      |              ^~
+test.c:289:43: error: invalid use of incomplete typedef ‘TreeMap’
+  289 |     if(  tree->root->right->parent != tree->root){
+      |                                           ^~
+test.c: In function ‘erase_test3’:
+test.c:304:23: error: invalid use of incomplete typedef ‘TreeMap’
+  304 |     if( * ((int*) tree->root->pair->key) != 6980){
+      |                       ^~
+test.c:309:23: error: invalid use of incomplete typedef ‘TreeMap’
+  309 |     if( * ((int*) tree->root->right->pair->key) != 8213){
+      |                       ^~
+test.c: In function ‘first_test2’:
+test.c:337:9: error: invalid use of incomplete typedef ‘TreeMap’
+  337 |     tree->root->left->left=createTreeNode(&p->id, p);
+      |         ^~
+test.c:338:9: error: invalid use of incomplete typedef ‘TreeMap’
+  338 |     tree->root->left->left->parent=tree->root->left;
+      |         ^~
+test.c:338:40: error: invalid use of incomplete typedef ‘TreeMap’
+  338 |     tree->root->left->left->parent=tree->root->left;
+      |                                        ^~
+test.c: In function ‘next_test1’:
+test.c:355:9: error: invalid use of incomplete typedef ‘TreeMap’
+  355 |     tree->root->left->right=createTreeNode(&p->id, p);
+      |         ^~
+test.c:356:9: error: invalid use of incomplete typedef ‘TreeMap’
+  356 |     tree->root->left->right->parent=tree->root->left;
+      |         ^~
+test.c:356:41: error: invalid use of incomplete typedef ‘TreeMap’
+  356 |     tree->root->left->right->parent=tree->root->left;
+      |                                         ^~
+test.c:359:9: error: invalid use of incomplete typedef ‘TreeMap’
+  359 |     tree->current = tree->root->left;
+      |         ^~
+test.c:359:25: error: invalid use of incomplete typedef ‘TreeMap’
+  359 |     tree->current = tree->root->left;
+      |                         ^~
+test.c: In function ‘next_test2’:
+test.c:379:9: error: invalid use of incomplete typedef ‘TreeMap’
+  379 |     tree->current = tree->root;
+      |         ^~
+test.c:379:25: error: invalid use of incomplete typedef ‘TreeMap’
+  379 |     tree->current = tree->root;
+      |                         ^~
+test.c: In function ‘next_test3’:
+test.c:409:9: error: invalid use of incomplete typedef ‘TreeMap’
+  409 |     tree->root->left->right=createTreeNode(&p->id, p);
+      |         ^~
+test.c:410:9: error: invalid use of incomplete typedef ‘TreeMap’
+  410 |     tree->root->left->right->parent=tree->root->left;
+      |         ^~
+test.c:410:41: error: invalid use of incomplete typedef ‘TreeMap’
+  410 |     tree->root->left->right->parent=tree->root->left;
+      |                                         ^~
+test.c:412:9: error: invalid use of incomplete typedef ‘TreeMap’
+  412 |     tree->current=tree->root->left->right;
+      |         ^~
+test.c:412:23: error: invalid use of incomplete typedef ‘TreeMap’
+  412 |     tree->current=tree->root->left->right;
+      |                       ^~
+In file included from test.c:4:
+treemap.c: In function ‘is_equal’:
+treemap.c:27:1: error: control reaches end of non-void function [-Werror=return-type]
+   27 | }
+      | ^
+cc1: all warnings being treated as errors
+Compilation failed
+65ea198
