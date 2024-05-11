@@ -180,12 +180,8 @@ Pair *upperBound(TreeMap *tree, void *key) {
     return NULL;
   if (key == NULL)
     return NULL;
-  // Auxiliares
-  // auxiliar ub_node que vaya guardando el nodo con la menor clave mayor o
-  // igual a key. Finalmente retorne el par del nodo ub_node.
   TreeNode *ub_node = NULL;
   TreeNode *current = tree->root;
-
   while (current != NULL) {
     if (tree->lower_than(key, current->pair->key)) {
       ub_node = current;
@@ -197,46 +193,47 @@ Pair *upperBound(TreeMap *tree, void *key) {
       return NULL;
     return ub_node->pair;
   }
+}
 
-  Pair *firstTreeMap(TreeMap * tree) {
-    /*Implemente las funciones para recorrer la estructura: Pair*
-     * firstTreeMap(TreeMap* tree) retorna el primer Pair del mapa (el menor).
-     * Pair* nextTreeMap(TreeMap* tree) retornar el siguiente Pair del mapa a
-     * partir del puntero TreeNode* current. Recuerde actualizar este puntero.*/
-    if (tree == NULL)
-      return NULL;
-    if (tree->root == NULL)
-      return NULL;
-    TreeNode *nodito = tree->root;
+Pair *firstTreeMap(TreeMap *tree) {
+  /*Implemente las funciones para recorrer la estructura: Pair*
+   * firstTreeMap(TreeMap* tree) retorna el primer Pair del mapa (el menor).
+   * Pair* nextTreeMap(TreeMap* tree) retornar el siguiente Pair del mapa a
+   * partir del puntero TreeNode* current. Recuerde actualizar este puntero.*/
+  if (tree == NULL)
+    return NULL;
+  if (tree->root == NULL)
+    return NULL;
+  TreeNode *nodito = tree->root;
+  while (nodito->left != NULL) {
+    nodito = nodito->left;
+  }
+  tree->current = nodito;
+  return nodito->pair;
+}
+
+Pair *nextTreeMap(TreeMap *tree) {
+  if (tree == NULL)
+    return NULL;
+  if (tree->root == NULL)
+    return NULL;
+
+  TreeNode *nodito = tree->current;
+  if (nodito->right != NULL) {
+    nodito = nodito->right;
     while (nodito->left != NULL) {
       nodito = nodito->left;
     }
-    tree->current = nodito;
-    return nodito->pair;
-  }
-
-  Pair *nextTreeMap(TreeMap * tree) {
-    if (tree == NULL)
-      return NULL;
-    if (tree->root == NULL)
-      return NULL;
-
-    TreeNode *nodito = tree->current;
-    if (nodito->right != NULL) {
-      nodito = nodito->right;
-      while (nodito->left != NULL) {
-        nodito = nodito->left;
-      }
-    } else {
-      TreeNode *p = nodito->parent;
-      while (p != NULL && nodito == p->right) {
-        nodito = p;
-        p = p->parent;
-      }
+  } else {
+    TreeNode *p = nodito->parent;
+    while (p != NULL && nodito == p->right) {
       nodito = p;
+      p = p->parent;
     }
-    tree->current = nodito;
-    if (nodito == NULL)
-      return NULL;
-    return nodito->pair;
+    nodito = p;
   }
+  tree->current = nodito;
+  if (nodito == NULL)
+    return NULL;
+  return nodito->pair;
+}
