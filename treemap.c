@@ -88,7 +88,15 @@ void insertTreeMap(TreeMap *tree, void *key, void *value) {
   tree->current = newNode;
 }
 
-TreeNode *minimum(TreeNode *x) { return NULL; }
+TreeNode *minimum(TreeNode *x) {
+  // Retorno el menor despues de x asi que debo ir full a la izquierda
+  if (x == NULL)
+    return NULL;
+  while (x->left != NULL)
+    x = x->left;
+
+  return x;
+}
 
 void removeNode(TreeMap *tree, TreeNode *node) {}
 
