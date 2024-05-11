@@ -92,6 +92,8 @@ TreeNode *minimum(TreeNode *x) {
   // Retorno el menor despues de x asi que debo ir full a la izquierda
   if (x == NULL)
     return NULL;
+  if (x->left == NULL)
+    return NULL;
   while (x->left != NULL)
     x = x->left;
 
