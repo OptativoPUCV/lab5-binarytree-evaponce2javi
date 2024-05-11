@@ -189,10 +189,10 @@ Pair *upperBound(TreeMap *tree, void *key) {
     } else {
       current = current->right;
     }
-    if (ub_node == NULL)
-      return NULL;
-    return ub_node->pair;
   }
+  if (ub_node == NULL)
+    return NULL;
+  return ub_node->pair;
 }
 
 Pair *firstTreeMap(TreeMap *tree) {
