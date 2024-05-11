@@ -139,7 +139,6 @@ void removeNode(TreeMap *tree, TreeNode *node) {
   // DOS HIJOS
   else {
     TreeNode *minSubArbol = minimum(node->right);
-    TreeNode *minDerecha = minSubArbol->right;
     if (minSubArbol->right != NULL)
       minSubArbol->right->parent = minSubArbol->parent;
     else if (minSubArbol->left == node)
